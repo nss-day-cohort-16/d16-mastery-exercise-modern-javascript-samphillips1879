@@ -1,3 +1,52 @@
+$bgColor: #361518;
+$txtColor1: #CF515C;
+$txtColor2: #4F3739;
+$color4: #2F592E;
+$color5: #4C3320;
+
+
 body {
-	color: lightblue;
+	background-color: $color5;
+}
+
+h1 {
+	color: $txtColor1;
+	text-align: center;
+}
+
+.userView {
+	background-color: $bgColor;
+	color: $txtColor1;
+	display: none;
+	height: 700px;
+	width: 80%;
+	margin: auto;
+	border: 2px solid $color4;
+	padding: 1em;
+	text-align: center;
+
+	input {
+		width: 50%;
+	}
+
+	select {
+		width: 50%;
+
+	}
+
+	div {
+		margin: 0.5em 0 1em 0;
+	}
+
+	.Btn {
+		background-color: $color4;
+	}
+
+	.Btn:hover {
+		color: $txtColor2;
+		background-color: $txtColor1;
+	}
+
+
+
 }

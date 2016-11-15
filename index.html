@@ -3,12 +3,54 @@
 <head>
 	<title>Robot Battledome</title>
 	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 	<h1>Sam Phillips Robot Battledome</h1>
 
-	<!-- <link rel="stylesheet" type="text/css" href="javascripts/main.js"> -->
+	<div id="userInputView" class="container userView">
+		<div class="row">
+			<div id="rob1Inputs" class="col-md-6">
+				<input type="text" name="PCName" id="PCName" placeholder="player name"><br>
+				<select id="PCModSelect" class="modelSelect">
+					<option>select robot model</option>
+					<option player="PC" class="botSelection" value="ManBot">Man Bot</option>
+					<option player="PC" class="botSelection" value="WomanBot">WomanBot</option>
+					<option player="PC" class="botSelection" value="Centipede">Centipede</option>
+					<option player="PC" class="botSelection" value="Boulder">Boulder</option>
+					<option player="PC" class="botSelection" value="DeathEagle">Death Eagle</option>
+					<option player="PC" class="botSelection" value="CyberCicada">Cyber Cicada</option>
+				</select>
+			</div>
+
+			<div id="rob2Inputs" class="col-md-6">
+				<input type="text" name="NPCName" id="NPCName" placeholder="enemy name"><br>
+				<select id="NPCModSelect" class="modelSelect">
+					<option>select robot model</option>
+					<option player="NPC" class="botSelection" value="ManBot">Man Bot</option>
+					<option player="NPC" class="botSelection" value="WomanBot">WomanBot</option>
+					<option player="NPC" class="botSelection" value="Centipede">Centipede</option>
+					<option player="NPC" class="botSelection" value="Boulder">Boulder</option>
+					<option player="NPC" class="botSelection" value="DeathEagle">Death Eagle</option>
+					<option player="NPC" class="botSelection" value="CyberCicada">Cyber Cicada</option>
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<h4 id="fightBtn" class="col-md-2 col-md-offset-5 Btn">FIGHT!</h4>
+		</div>
+	</div>
+
+
+
+	<div id="battleView" class="container userView">
+		
+	</div>
+
+	<script type="text/javascript" src="dist/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="javascripts/main.js"></script> -->
+	<!-- <script type="text/javascript" src="javascripts/robots.js"></script> -->
 	<script type="text/javascript" src="dist/app.js"></script>
 </body>
 </html>
