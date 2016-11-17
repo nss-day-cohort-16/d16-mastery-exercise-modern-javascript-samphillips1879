@@ -7,14 +7,14 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-	<h1>Sam Phillips Robot Battledome</h1>
+	<h1>Robot Battledome</h1>
 
 	<div id="userInputView" class="container userView">
 		<div class="row">
 			<div id="rob1Inputs" class="col-md-6">
-				<input type="text" name="PCName" id="PCName" placeholder="player name"><br>
+				<input type="text" name="PCName" id="PCNameInput" placeholder="player name"><br>
 				<select id="PCModSelect" class="modelSelect">
-					<option>select robot model</option>
+					<option>select PC robot model</option>
 					<option player="PC" class="botSelection" value="ManBot">Man Bot</option>
 					<option player="PC" class="botSelection" value="WomanBot">WomanBot</option>
 					<option player="PC" class="botSelection" value="Centipede">Centipede</option>
@@ -23,11 +23,10 @@
 					<option player="PC" class="botSelection" value="CyberCicada">Cyber Cicada</option>
 				</select>
 			</div>
-
 			<div id="rob2Inputs" class="col-md-6">
-				<input type="text" name="NPCName" id="NPCName" placeholder="enemy name"><br>
+				<input type="text" name="NPCName" id="NPCNameInput" placeholder="enemy name"><br>
 				<select id="NPCModSelect" class="modelSelect">
-					<option>select robot model</option>
+					<option>select NPC robot model</option>
 					<option player="NPC" class="botSelection" value="ManBot">Man Bot</option>
 					<option player="NPC" class="botSelection" value="WomanBot">WomanBot</option>
 					<option player="NPC" class="botSelection" value="Centipede">Centipede</option>
@@ -45,7 +44,39 @@
 
 
 	<div id="battleView" class="container userView">
-		
+		<h2>BATTLEGROUND</h2>
+		<div class="row">
+			<div class="col-sm-6" id="PCBattleCard">
+				<h3 id="PCName"></h3>
+				<div id="PCBotModel"></div>
+				<div id="PCHealth"></div>
+				<div class="avWrap"><img id="PCImg" class="battleAvatar" src="images/????"></div><br>
+			</div>
+			<div class="col-sm-6" id="NPCBattleCard">
+				<h3 id="NPCName"></h3>
+				<div id="NPCBotModel"></div>
+				<div id="NPCHealth"></div>
+				<div class="avWrap"><img id="NPCImg" class="battleAvatar" src="images/????"></div><br>
+			</div>
+		</div>
+		<div id="battleDescriptionDiv"></div>
+		<div class="row">
+			<h4 id="attackBtn" class="battleBtn col-md-2 col-md-offset-3 Btn">ATTACK!</h4>
+			<h4 id="dodgeBtn" class="battleBtn col-md-2 col-md-offset-2 Btn">DODGE!</h4>
+		</div>
+	</div>
+
+
+	<div id="resultsViews">
+		<div id="victoryPage" class="container userView">
+			<h2>YOU WIN!</h2>
+			<h2 class="resultsPage">You Win</h2>
+		</div>
+
+		<div id="defeatPage" class="container userView">
+			<h2>YOU LOSE!</h2>
+			<h2 class="resultsPage">loser is you</h2>
+		</div>
 	</div>
 
 	<script type="text/javascript" src="dist/jquery.min.js"></script>
@@ -54,3 +85,15 @@
 	<script type="text/javascript" src="dist/app.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

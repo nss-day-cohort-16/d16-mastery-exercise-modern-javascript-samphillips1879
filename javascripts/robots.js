@@ -7,6 +7,7 @@ const ROBOTS = {};
 ROBOTS.Robot = function() {
 	this.health = Math.floor(Math.random() * 50 + 50);//default health range from 50 to about 100
 	this.maxHealth = this.health;
+	this.attackState = null;
 };
 ROBOTS.Robot.prototype.getCurrentAttack = function() {
 	let cAttack = this.attacks[Math.floor(Math.random() * (this.attacks.length))];
@@ -20,21 +21,23 @@ ROBOTS.Synth.prototype = new ROBOTS.Robot();
 
 ROBOTS.ManBot = function() {
 	this.model = "Man Bot";
-	this.strength = 7;
-	this.agility = 5;
+	this.strength = 0.7;
+	this.agility = 8;
 	this.health += 20;
 	this.maxHealth = this.health;
-	this.attacks = [new Attacks.Punch()];
+	this.attacks = [new Attacks.Punch(), new Attacks.Kick()];
+	this.image = "images/manBot.png";
 };
 ROBOTS.ManBot.prototype = new ROBOTS.Synth();
 
 ROBOTS.WomanBot = function() {
 	this.model = "Woman Bot";
-	this.strength = 4;
-	this.agility = 8;
+	this.strength = 0.4;
+	this.agility = 15;
 	this.health += 15;
 	this.maxHealth = this.health;
-	this.attacks = [new Attacks.Kick()];
+	this.attacks = [new Attacks.Kick(), new Attacks.Punch()];
+	this.image = "images/womanBot.png";
 };
 ROBOTS.WomanBot.prototype = new ROBOTS.Synth();
 
@@ -47,21 +50,23 @@ ROBOTS.Crawler.prototype = new ROBOTS.Robot();
 
 ROBOTS.Centipede = function() {
 	this.model = "Centipede";
-	this.strength = 4;
-	this.agility = 7;
+	this.strength = 0.4;
+	this.agility = 11;
 	this.health += 5;
 	this.maxHealth = this.health;
-	this.attacks = [new Attacks.Bite()];
+	this.attacks = [new Attacks.Bite(), new Attacks.Sting()];
+	this.image = "images/cyberCentipede.jpg";
 };
 ROBOTS.Centipede.prototype = new ROBOTS.Crawler();
 
 ROBOTS.Boulder = function() {
 	this.model = "Boulder";
-	this.strength = 10;
-	this.agility = 2;
+	this.strength = 1;
+	this.agility = 1;
 	this.health += 50;
 	this.maxHealth = this.health;
-	this.attacks = [new Attacks.Crush()];
+	this.attacks = [new Attacks.Crush(), new Attacks.Bump()];
+	this.image = "images/boulder.png";
 };
 ROBOTS.Boulder.prototype = new ROBOTS.Crawler();
 
@@ -74,21 +79,23 @@ ROBOTS.Flyer.prototype = new ROBOTS.Robot();
 
 ROBOTS.DeathEagle = function() {
 	this.model = "Death Eagle";
-	this.strength = 6;
-	this.agility = 7;
+	this.strength = 0.6;
+	this.agility = 17;
 	this.health += 10;
 	this.maxHealth = this.health;
-	this.attacks = [new Attacks.Talons()];
+	this.attacks = [new Attacks.Talons(), new Attacks.Peck()];
+	this.image = "images/eagle.jpg";
 };
 ROBOTS.DeathEagle.prototype = new ROBOTS.Flyer();
 
 ROBOTS.CyberCicada = function() {
 	this.model = "Cyber Cicada";
-	this.strength = 3;
-	this.agility = 10;
+	this.strength = 0.3;
+	this.agility = 20;
 	this.health -= 5;
 	this.maxHealth = this.health;
-	this.attacks = [new Attacks.Swarm()];
+	this.attacks = [new Attacks.Swarm(), new Attacks.Nibble()];
+	this.image = "images/cicada.jpg";
 };
 ROBOTS.CyberCicada.prototype = new ROBOTS.Flyer();
 

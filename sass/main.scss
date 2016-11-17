@@ -18,7 +18,7 @@ h1 {
 	background-color: $bgColor;
 	color: $txtColor1;
 	display: none;
-	height: 700px;
+	min-height: 700px;
 	width: 80%;
 	margin: auto;
 	border: 2px solid $color4;
@@ -40,11 +40,33 @@ h1 {
 
 	.Btn {
 		background-color: $color4;
+		line-height: 3em;
+		border: 2px groove $txtColor1;
 	}
 
 	.Btn:hover {
 		color: $txtColor2;
 		background-color: $txtColor1;
+		border: 5px groove $txtColor2;
+	}
+
+	.battleAvatar {
+		width: 50%;
+	}
+
+	.avWrap {
+		min-height: 200px;
+	}
+
+	#battleDescriptionDiv {
+		min-height: 2.5em;
+	}
+
+	.resultsPage {
+		margin-top: 30%;
+		font-size: 3em;
+		color: $color4;
+		text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	}
 
 

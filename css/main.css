@@ -9,7 +9,7 @@ h1 {
   background-color: #361518;
   color: #CF515C;
   display: none;
-  height: 700px;
+  min-height: 700px;
   width: 80%;
   margin: auto;
   border: 2px solid #2F592E;
@@ -22,9 +22,23 @@ h1 {
   .userView div {
     margin: 0.5em 0 1em 0; }
   .userView .Btn {
-    background-color: #2F592E; }
+    background-color: #2F592E;
+    line-height: 3em;
+    border: 2px groove #CF515C; }
   .userView .Btn:hover {
     color: #4F3739;
-    background-color: #CF515C; }
+    background-color: #CF515C;
+    border: 5px groove #4F3739; }
+  .userView .battleAvatar {
+    width: 50%; }
+  .userView .avWrap {
+    min-height: 200px; }
+  .userView #battleDescriptionDiv {
+    min-height: 2.5em; }
+  .userView .resultsPage {
+    margin-top: 30%;
+    font-size: 3em;
+    color: #2F592E;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
 
 /*# sourceMappingURL=main.css.map */

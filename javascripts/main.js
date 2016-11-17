@@ -2,7 +2,8 @@
 //variables----required modules
 let Robots = require("./robots.js"),
 Create = require("./charCreate.js"),
-Players = require("./players.js");
+Players = require("./players.js"),
+Battle = require("./battleground.js");
 
 //variables----html elements
 const INPUT_VIEW = $("#userInputView"),
@@ -23,35 +24,44 @@ $(document).ready(() => {
 $(document).on("change", ".modelSelect", function() {
 	let botChoice = $(this).children(":selected")[0];
 	Create.botAssign($(botChoice));
-	console.log("PC", Players.PC);
-	console.log("NPC", Players.NPC);
+	// console.log("PC", Players.PC);
+	// console.log("NPC", Players.NPC);
 });
 
 
-// $(document).on("change", ".modelSelect", function() {
-// 	if (this.player === "PC") {
-// 		Create.botAssign(PC);
-// 	} else if (this.player === "NPC") {
-// 		Create.botAssign(NPC);
-// 	}
-// 	console.log("PC", PC);
-// 	console.log("NPC", NPC);
-// });
+//changes view to battleView
+$(document).on("click", "#fightBtn", () => {
+	$(".userView").hide();
+	$("#battleView").show();
+	// console.log("this", this);
+	// if (this.id === "attackBtn") {
+	// 	Players.PC.attackState = "attack";
+	// } else if (this.id === "dodgeBtn") {
+	// 	Players.PC.attackState = "dodge";
+	// }
+	Battle.populatePage();
 
+});
 
+$(document).on("click", ".battleBtn", () => {
+	let battleBtnClicked = event.target;
+	//does the computer attack or dodge?
+	if (Math.random() >= 0.5) {
+		Players.NPC.attackState = "attack";
+	} else {
+		Players.NPC.attackState = "dodge";
+	}
 
-
-
-
-console.log("Robots", Robots);
-
-
-// let man = new Robots.ManBot();
-// console.log("man", man);
-// let woman = new Robots.WomanBot();
-// console.log("woman", woman);
-// console.log("man.maxHealth", man.maxHealth);
-
+	//does the user attack or dodge?
+	if (battleBtnClicked.id === "attackBtn") {
+		Players.PC.attackState = "attack";
+	} else if (battleBtnClicked.id === "dodgeBtn") {
+		Players.PC.attackState = "dodge";
+	}
+	Battle.combat();
+	Battle.determineVictor();
+	Battle.populatePage();
+});
 
 
 
