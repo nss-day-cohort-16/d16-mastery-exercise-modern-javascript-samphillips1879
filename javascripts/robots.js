@@ -4,6 +4,8 @@ let Attacks = require("./attacks.js");
 
 const ROBOTS = {};
 
+
+//////BASE ROBOT PROTOTYPE FUNCTION
 ROBOTS.Robot = function() {
 	this.health = Math.floor(Math.random() * 50 + 50);
 	this.maxHealth = this.health;
@@ -14,6 +16,8 @@ ROBOTS.Robot.prototype.getCurrentAttack = function() {
 	return cAttack;
 };
 
+
+/////////SYNTH TYPE
 ROBOTS.Synth = function() {
 	this.type = "humanoid";
 };
@@ -42,7 +46,7 @@ ROBOTS.WomanBot = function() {
 ROBOTS.WomanBot.prototype = new ROBOTS.Synth();
 
 
-
+/////////CRAWLER TYPE
 ROBOTS.Crawler = function() {
 	this.type = "floor";
 };
@@ -71,7 +75,7 @@ ROBOTS.Boulder = function() {
 ROBOTS.Boulder.prototype = new ROBOTS.Crawler();
 
 
-
+/////////FLYER TYPE
 ROBOTS.Flyer = function() {
 	this.type = "aerial";
 };
@@ -101,18 +105,3 @@ ROBOTS.CyberCicada.prototype = new ROBOTS.Flyer();
 
 
 module.exports = ROBOTS;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

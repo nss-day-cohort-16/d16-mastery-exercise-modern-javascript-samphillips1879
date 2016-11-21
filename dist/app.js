@@ -3,13 +3,6 @@
 
 const ATTACKS = {};
 
-// ATTACKS.attack = function() {
-// 	this.name = null;
-// 	this.damage = null;
-// 	this.sound = null;
-// 	this.image = null;
-// };
-
 ATTACKS.Punch = function() {
 	this.name = "Punch";
 	this.damage = 12;
@@ -74,19 +67,18 @@ NPCAttack = null,
 PCAttack = null;
 
 const BATTLE = {},
-
+//PC
 $PCBattleCard = $("#PCBattleCard"),
 $PCImg = $("#PCImg"),
 $PCHealth = $("#PCHealth"),
 $PCName = $("#PCName"),
 $PCModel = $("#PCBotModel"),
-
+//NPC
 $NPCBattleCard = $("#NPCBattleCard"),
 $NPCImg = $("#NPCImg"),
 $NPCHealth = $("#NPCHealth"),
 $NPCName = $("#NPCName"),
 $NPCModel = $("#NPCBotModel");
-
 
 BATTLE.populatePage = () => {
 	// PC
@@ -103,9 +95,6 @@ BATTLE.populatePage = () => {
 	$descDiv.html(battleDescription);
 	$resultsDivs.html(battleResults);
 };
-
-
-
 
 BATTLE.combat = () => {
 	NPCAttack = Players.NPC.getCurrentAttack();
@@ -124,17 +113,10 @@ BATTLE.combat = () => {
 		}
 		//player dodge logic
 	} else if (Players.PC.attackState === "dodge") {
-
-
-
 			//PC defend vs NPC attack logic
 		if (Players.NPC.attackState === "attack") {
 			Players.PC.health -= Math.ceil(((Math.random() * Players.NPC.strength) * NPCAttack.damage) / (Math.ceil(Math.random() * Players.PC.agility)));
 			battleDescription = `${Players.PC.name} dodged some of ${Players.NPC.name}'s ${NPCAttack.name} damage`;
-
-
-
-
 			//Nobody attacks anybody logic
 		} else if (Players.NPC.attackState === "dodge") {
 			battleDescription = `Both combatants dodged each other's non-existent attacks, and it looked quite silly`;
@@ -145,37 +127,17 @@ BATTLE.combat = () => {
 
 BATTLE.determineVictor = () => {
 	if (Players.NPC.health <= 0) {
-        // MKmusic.pause();
-        // $("body").removeAttr("id", "battleview");
         battleResults = `${Players.PC.name} destroyed ${Players.NPC.name} with their ${PCAttack.name} attack!`;
         $resultsDivs.html(battleResults);
         $(".userView").hide();
         $("#victoryPage").show();
-
-        // $('h1').animate({ 
-        //   'font-size' : '4em'
-        // },1000);
-
-        // let loseSound = new Audio("sound/needsfood.wav");
-        // loseSound.play();
     } else if (Players.PC.health <= 0) {
-        // MKmusic.pause();
-        // $(".card").hide();
         battleResults = `${Players.NPC.name} destroyed ${Players.PC.name} with their ${NPCAttack.name} attack!`;
         $resultsDivs.html(battleResults);
         $(".userView").hide();
         $("#defeatPage").show();
-
-        // $("body").removeAttr("id", "battleview");
-        // $('h1').animate({ 
-        //   'font-size' : '4em'
-        // },1000);
-        // let loseSound = new Audio("sound/needsfood.wav");
-        // loseSound.play();
     }
 };
-
-
 
 
 module.exports = BATTLE;
@@ -187,8 +149,6 @@ Players = require("./players.js");
 
 const CREATE = {};
 
-
-//may want to change this so that it can be triggered, and work, when the fight button is pressed, instead of when a bot is selected. That will let the user input the names AFTER selecting bot models
 CREATE.botAssign = function(choice) {
 	// let $choice = $(choice);
 	if (choice.attr("player") === "PC") {
@@ -199,12 +159,6 @@ CREATE.botAssign = function(choice) {
 		Players.NPC.name = $("#NPCNameInput").val();
 	}
 };
-
-
-//as it currently stands, there can only be one instance per prototype per page refresh... I don't know why... For now I'm just gonna ignore it to get MVP
-
-
-
 
 module.exports = CREATE;
 },{"./players.js":5,"./robots.js":6}],4:[function(require,module,exports){
@@ -283,6 +237,8 @@ let Attacks = require("./attacks.js");
 
 const ROBOTS = {};
 
+
+//////BASE ROBOT PROTOTYPE FUNCTION
 ROBOTS.Robot = function() {
 	this.health = Math.floor(Math.random() * 50 + 50);
 	this.maxHealth = this.health;
@@ -293,6 +249,8 @@ ROBOTS.Robot.prototype.getCurrentAttack = function() {
 	return cAttack;
 };
 
+
+/////////SYNTH TYPE
 ROBOTS.Synth = function() {
 	this.type = "humanoid";
 };
@@ -321,7 +279,7 @@ ROBOTS.WomanBot = function() {
 ROBOTS.WomanBot.prototype = new ROBOTS.Synth();
 
 
-
+/////////CRAWLER TYPE
 ROBOTS.Crawler = function() {
 	this.type = "floor";
 };
@@ -350,7 +308,7 @@ ROBOTS.Boulder = function() {
 ROBOTS.Boulder.prototype = new ROBOTS.Crawler();
 
 
-
+/////////FLYER TYPE
 ROBOTS.Flyer = function() {
 	this.type = "aerial";
 };
@@ -380,20 +338,4 @@ ROBOTS.CyberCicada.prototype = new ROBOTS.Flyer();
 
 
 module.exports = ROBOTS;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 },{"./attacks.js":1}]},{},[4]);

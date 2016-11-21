@@ -9,19 +9,18 @@ NPCAttack = null,
 PCAttack = null;
 
 const BATTLE = {},
-
+//PC
 $PCBattleCard = $("#PCBattleCard"),
 $PCImg = $("#PCImg"),
 $PCHealth = $("#PCHealth"),
 $PCName = $("#PCName"),
 $PCModel = $("#PCBotModel"),
-
+//NPC
 $NPCBattleCard = $("#NPCBattleCard"),
 $NPCImg = $("#NPCImg"),
 $NPCHealth = $("#NPCHealth"),
 $NPCName = $("#NPCName"),
 $NPCModel = $("#NPCBotModel");
-
 
 BATTLE.populatePage = () => {
 	// PC
@@ -38,9 +37,6 @@ BATTLE.populatePage = () => {
 	$descDiv.html(battleDescription);
 	$resultsDivs.html(battleResults);
 };
-
-
-
 
 BATTLE.combat = () => {
 	NPCAttack = Players.NPC.getCurrentAttack();
@@ -59,17 +55,10 @@ BATTLE.combat = () => {
 		}
 		//player dodge logic
 	} else if (Players.PC.attackState === "dodge") {
-
-
-
 			//PC defend vs NPC attack logic
 		if (Players.NPC.attackState === "attack") {
 			Players.PC.health -= Math.ceil(((Math.random() * Players.NPC.strength) * NPCAttack.damage) / (Math.ceil(Math.random() * Players.PC.agility)));
 			battleDescription = `${Players.PC.name} dodged some of ${Players.NPC.name}'s ${NPCAttack.name} damage`;
-
-
-
-
 			//Nobody attacks anybody logic
 		} else if (Players.NPC.attackState === "dodge") {
 			battleDescription = `Both combatants dodged each other's non-existent attacks, and it looked quite silly`;
@@ -80,37 +69,17 @@ BATTLE.combat = () => {
 
 BATTLE.determineVictor = () => {
 	if (Players.NPC.health <= 0) {
-        // MKmusic.pause();
-        // $("body").removeAttr("id", "battleview");
         battleResults = `${Players.PC.name} destroyed ${Players.NPC.name} with their ${PCAttack.name} attack!`;
         $resultsDivs.html(battleResults);
         $(".userView").hide();
         $("#victoryPage").show();
-
-        // $('h1').animate({ 
-        //   'font-size' : '4em'
-        // },1000);
-
-        // let loseSound = new Audio("sound/needsfood.wav");
-        // loseSound.play();
     } else if (Players.PC.health <= 0) {
-        // MKmusic.pause();
-        // $(".card").hide();
         battleResults = `${Players.NPC.name} destroyed ${Players.PC.name} with their ${NPCAttack.name} attack!`;
         $resultsDivs.html(battleResults);
         $(".userView").hide();
         $("#defeatPage").show();
-
-        // $("body").removeAttr("id", "battleview");
-        // $('h1').animate({ 
-        //   'font-size' : '4em'
-        // },1000);
-        // let loseSound = new Audio("sound/needsfood.wav");
-        // loseSound.play();
     }
 };
-
-
 
 
 module.exports = BATTLE;

@@ -2,13 +2,6 @@
 
 const ATTACKS = {};
 
-// ATTACKS.attack = function() {
-// 	this.name = null;
-// 	this.damage = null;
-// 	this.sound = null;
-// 	this.image = null;
-// };
-
 ATTACKS.Punch = function() {
 	this.name = "Punch";
 	this.damage = 12;
