@@ -1,0 +1,106 @@
+$bgColor: #361518;
+$txtColor1: #CF515C;
+$txtColor2: #4F3739;
+$color4: #2F592E;
+$color5: #4C3320;
+
+
+body {
+	background-color: $color5;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+h1 {
+	color: $txtColor1;
+	text-align: center;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.userView {
+	background-color: $bgColor;
+	color: $txtColor1;
+	display: none;
+	min-height: 750px;
+	width: 80%;
+	margin: auto;
+	border: 2px solid $color4;
+	padding: 1em;
+	text-align: center;
+
+
+	input {
+		width: 50%;
+	}
+
+	select {
+		width: 50%;
+
+	}
+
+	div {
+		margin: 0.5em 0 1em 0;
+	}
+
+	.Btn {
+		background-color: $color4;
+		line-height: 3em;
+		border: 2px groove $txtColor1;
+	}
+
+	.Btn:hover {
+		color: $txtColor2;
+		background-color: $txtColor1;
+		border: 5px groove $txtColor2;
+	}
+
+	.battleAvatar {
+		width: 50%;
+	}
+
+	.avWrap {
+		min-height: 200px;
+	}
+
+	#battleDescriptionDiv {
+		padding: 1em 1em 1em 1em;
+		min-height: 4em;
+	}
+
+	.resultsPage {
+		margin-top: 1%;
+		font-size: 3em;
+	}
+
+
+	.card {
+		border: 2px solid black;
+		background-color: $color4; 
+	}
+
+	#battleDescriptionDiv {
+		width: 30%;
+		margin: auto;
+	}
+
+
+}
+
+#battleView {
+	background-image: url("../images/junkyard1.jpg");
+	background-size: 100% 100%;
+
+}
+
+
+#resultsViews {
+	img {
+		width: 35%;
+	}
+}
+
+
+#userInputView {
+	img {
+		width: 25%;
+	}
+}

@@ -1,0 +1,61 @@
+body {
+  background-color: #4C3320;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+
+h1 {
+  color: #CF515C;
+  text-align: center;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+
+.userView {
+  background-color: #361518;
+  color: #CF515C;
+  display: none;
+  min-height: 750px;
+  width: 80%;
+  margin: auto;
+  border: 2px solid #2F592E;
+  padding: 1em;
+  text-align: center; }
+  .userView input {
+    width: 50%; }
+  .userView select {
+    width: 50%; }
+  .userView div {
+    margin: 0.5em 0 1em 0; }
+  .userView .Btn {
+    background-color: #2F592E;
+    line-height: 3em;
+    border: 2px groove #CF515C; }
+  .userView .Btn:hover {
+    color: #4F3739;
+    background-color: #CF515C;
+    border: 5px groove #4F3739; }
+  .userView .battleAvatar {
+    width: 50%; }
+  .userView .avWrap {
+    min-height: 200px; }
+  .userView #battleDescriptionDiv {
+    padding: 1em 1em 1em 1em;
+    min-height: 4em; }
+  .userView .resultsPage {
+    margin-top: 1%;
+    font-size: 3em; }
+  .userView .card {
+    border: 2px solid black;
+    background-color: #2F592E; }
+  .userView #battleDescriptionDiv {
+    width: 30%;
+    margin: auto; }
+
+#battleView {
+  background-image: url("../images/junkyard1.jpg");
+  background-size: 100% 100%; }
+
+#resultsViews img {
+  width: 35%; }
+
+#userInputView img {
+  width: 25%; }
+
+/*# sourceMappingURL=main.css.map */
