@@ -160,6 +160,27 @@ CREATE.botAssign = function(choice) {
 	}
 };
 
+
+//for next Round functionality
+CREATE.generateBot = function(calledChar) {
+
+    var random = Math.round(Math.random() * (Robots.botArray.length - 1));
+
+
+
+
+
+    var randomBot = Robots.botArray[random];
+	// calledChar = new ROBOTS[randomBot]();
+	Players.NPC = new Robots[randomBot]();
+	Players.NPC.name = $("#NPCNameInput").val();
+    // calledChar = new Gauntlet.Combatants[randomCharacter]();
+    // return calledChar;
+
+  };
+
+
+
 module.exports = CREATE;
 },{"./players.js":5,"./robots.js":6}],4:[function(require,module,exports){
 "use strict";
@@ -171,6 +192,7 @@ Battle = require("./battleground.js");
 
 //variables----html elements
 const INPUT_VIEW = $("#userInputView"),
+USER_VIEWS = $(".userView"),
 BATTLE_VIEW = $("#battleView");
 
 //page initializer 
@@ -217,6 +239,21 @@ $(document).on("click", ".battleBtn", () => {
 });
 
 
+$(document).on("click", "#nextRound", () => {
+	Create.generateBot();
+	Players.PC.health = Players.PC.maxHealth;
+	Battle.populatePage();
+	USER_VIEWS.hide();
+	BATTLE_VIEW.show();
+});
+
+$(document).on("click", "#newBot", () => {
+	USER_VIEWS.hide();
+	$("#userInputView").show();
+	$(".modelSelect").prop('selectedIndex',0);
+});
+
+
 
 
 
@@ -236,6 +273,9 @@ module.exports = PLAYERS;
 let Attacks = require("./attacks.js");
 
 const ROBOTS = {};
+
+
+ROBOTS.botArray = ["ManBot", "WomanBot", "Centipede", "Boulder", "DeathEagle", "CyberCicada"];
 
 
 //////BASE ROBOT PROTOTYPE FUNCTION
@@ -260,7 +300,7 @@ ROBOTS.ManBot = function() {
 	this.model = "Man Bot";
 	this.strength = 0.7;
 	this.agility = 8;
-	this.health += 20;
+	this.health += 22;
 	this.maxHealth = this.health;
 	this.attacks = [new Attacks.Punch(), new Attacks.Kick()];
 	this.image = "images/manBot.png";
@@ -271,7 +311,7 @@ ROBOTS.WomanBot = function() {
 	this.model = "Woman Bot";
 	this.strength = 0.4;
 	this.agility = 15;
-	this.health += 15;
+	this.health += 18;
 	this.maxHealth = this.health;
 	this.attacks = [new Attacks.Kick(), new Attacks.Punch()];
 	this.image = "images/womanBot.png";
@@ -289,7 +329,7 @@ ROBOTS.Centipede = function() {
 	this.model = "Centipede";
 	this.strength = 0.4;
 	this.agility = 11;
-	this.health += 5;
+	this.health += 10;
 	this.maxHealth = this.health;
 	this.attacks = [new Attacks.Bite(), new Attacks.Sting()];
 	this.image = "images/cyberCentipede.jpg";
@@ -300,7 +340,7 @@ ROBOTS.Boulder = function() {
 	this.model = "Boulder";
 	this.strength = 1;
 	this.agility = 1;
-	this.health += 50;
+	this.health += 40;
 	this.maxHealth = this.health;
 	this.attacks = [new Attacks.Crush(), new Attacks.Bump()];
 	this.image = "images/boulder.png";
@@ -318,7 +358,7 @@ ROBOTS.DeathEagle = function() {
 	this.model = "Death Eagle";
 	this.strength = 0.6;
 	this.agility = 17;
-	this.health += 10;
+	this.health += 15;
 	this.maxHealth = this.health;
 	this.attacks = [new Attacks.Talons(), new Attacks.Peck()];
 	this.image = "images/eagle.jpg";
@@ -329,7 +369,7 @@ ROBOTS.CyberCicada = function() {
 	this.model = "Cyber Cicada";
 	this.strength = 0.3;
 	this.agility = 20;
-	this.health -= 5;
+	this.health -= 10;
 	this.maxHealth = this.health;
 	this.attacks = [new Attacks.Swarm(), new Attacks.Nibble()];
 	this.image = "images/cicada.jpg";

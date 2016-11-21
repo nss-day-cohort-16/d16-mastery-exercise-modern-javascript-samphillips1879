@@ -39,7 +39,7 @@ h1 {
     padding: 1em 1em 1em 1em;
     min-height: 4em; }
   .userView .resultsPage {
-    margin-top: 5%;
+    margin-top: 1%;
     font-size: 3em; }
   .userView .card {
     border: 2px solid black;
@@ -53,7 +53,7 @@ h1 {
   background-size: 100% 100%; }
 
 #resultsViews img {
-  width: 50%; }
+  width: 35%; }
 
 #userInputView img {
   width: 25%; }

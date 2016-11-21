@@ -16,4 +16,25 @@ CREATE.botAssign = function(choice) {
 	}
 };
 
+
+//for next Round functionality
+CREATE.generateBot = function(calledChar) {
+
+    var random = Math.round(Math.random() * (Robots.botArray.length - 1));
+
+
+
+
+
+    var randomBot = Robots.botArray[random];
+	// calledChar = new ROBOTS[randomBot]();
+	Players.NPC = new Robots[randomBot]();
+	Players.NPC.name = $("#NPCNameInput").val();
+    // calledChar = new Gauntlet.Combatants[randomCharacter]();
+    // return calledChar;
+
+  };
+
+
+
 module.exports = CREATE;

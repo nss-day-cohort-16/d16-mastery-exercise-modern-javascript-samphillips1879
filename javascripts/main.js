@@ -7,6 +7,7 @@ Battle = require("./battleground.js");
 
 //variables----html elements
 const INPUT_VIEW = $("#userInputView"),
+USER_VIEWS = $(".userView"),
 BATTLE_VIEW = $("#battleView");
 
 //page initializer 
@@ -50,6 +51,21 @@ $(document).on("click", ".battleBtn", () => {
 	Battle.combat();
 	Battle.determineVictor();
 	Battle.populatePage();
+});
+
+
+$(document).on("click", "#nextRound", () => {
+	Create.generateBot();
+	Players.PC.health = Players.PC.maxHealth;
+	Battle.populatePage();
+	USER_VIEWS.hide();
+	BATTLE_VIEW.show();
+});
+
+$(document).on("click", "#newBot", () => {
+	USER_VIEWS.hide();
+	$("#userInputView").show();
+	$(".modelSelect").prop('selectedIndex',0);
 });
 
 
