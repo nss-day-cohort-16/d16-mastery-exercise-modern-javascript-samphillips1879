@@ -5,7 +5,7 @@ let Attacks = require("./attacks.js");
 const ROBOTS = {};
 
 ROBOTS.Robot = function() {
-	this.health = Math.floor(Math.random() * 50 + 50);//default health range from 50 to about 100
+	this.health = Math.floor(Math.random() * 50 + 50);
 	this.maxHealth = this.health;
 	this.attackState = null;
 };

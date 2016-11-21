@@ -24,30 +24,19 @@ $NPCModel = $("#NPCBotModel");
 
 
 BATTLE.populatePage = () => {
-
 	// PC
 	$PCImg.attr("src", `${Players.PC.image}`);
 	$PCHealth.html(`Health: ${Players.PC.health}`);
 	$PCName.html(`${Players.PC.name}`);
 	$PCModel.html(`Bot Model: ${Players.PC.model}`);
-
-
-
 	// NPC
 	$NPCImg.attr("src", `${Players.NPC.image}`);
 	$NPCHealth.html(`Health: ${Players.NPC.health}`);
 	$NPCName.html(`${Players.NPC.name}`);
 	$NPCModel.html(`Bot Model: ${Players.NPC.model}`);
-
-
-
+	//battle description/results
 	$descDiv.html(battleDescription);
 	$resultsDivs.html(battleResults);
-
-
-
-
-
 };
 
 
@@ -56,34 +45,18 @@ BATTLE.populatePage = () => {
 BATTLE.combat = () => {
 	NPCAttack = Players.NPC.getCurrentAttack();
 	PCAttack = Players.PC.getCurrentAttack();
-
-
 		//player attack logic
 	if (Players.PC.attackState === "attack") {
-
-
-
 			//PC attack vs NPC attack logic
 		if (Players.NPC.attackState === "attack") {
 			Players.PC.health -= Math.ceil(((Math.random() * (1 - 0.5) + 0.5 ) * Players.NPC.strength) * NPCAttack.damage);
 			Players.NPC.health -= Math.ceil(((Math.random() * (1 - 0.5) + 0.5 ) * Players.PC.strength) * PCAttack.damage);
 			battleDescription = `${Players.PC.name} attacked using ${PCAttack.name} and ${Players.NPC.name} attacked using ${NPCAttack.name}`;
-
-
-
-
 			//PC attack vs NPC dodge logic
 		} else if (Players.NPC.attackState === "dodge") {
 			Players.NPC.health -= Math.ceil(((Math.random() * Players.PC.strength) * PCAttack.damage) / (Math.ceil(Math.random() * Players.NPC.agility)));
 			battleDescription = `${Players.NPC.name} dodged some of ${Players.PC.name}'s ${PCAttack.name} damage`;
-
-
-
 		}
-
-
-
-
 		//player dodge logic
 	} else if (Players.PC.attackState === "dodge") {
 

@@ -89,30 +89,19 @@ $NPCModel = $("#NPCBotModel");
 
 
 BATTLE.populatePage = () => {
-
 	// PC
 	$PCImg.attr("src", `${Players.PC.image}`);
 	$PCHealth.html(`Health: ${Players.PC.health}`);
 	$PCName.html(`${Players.PC.name}`);
 	$PCModel.html(`Bot Model: ${Players.PC.model}`);
-
-
-
 	// NPC
 	$NPCImg.attr("src", `${Players.NPC.image}`);
 	$NPCHealth.html(`Health: ${Players.NPC.health}`);
 	$NPCName.html(`${Players.NPC.name}`);
 	$NPCModel.html(`Bot Model: ${Players.NPC.model}`);
-
-
-
+	//battle description/results
 	$descDiv.html(battleDescription);
 	$resultsDivs.html(battleResults);
-
-
-
-
-
 };
 
 
@@ -121,34 +110,18 @@ BATTLE.populatePage = () => {
 BATTLE.combat = () => {
 	NPCAttack = Players.NPC.getCurrentAttack();
 	PCAttack = Players.PC.getCurrentAttack();
-
-
 		//player attack logic
 	if (Players.PC.attackState === "attack") {
-
-
-
 			//PC attack vs NPC attack logic
 		if (Players.NPC.attackState === "attack") {
 			Players.PC.health -= Math.ceil(((Math.random() * (1 - 0.5) + 0.5 ) * Players.NPC.strength) * NPCAttack.damage);
 			Players.NPC.health -= Math.ceil(((Math.random() * (1 - 0.5) + 0.5 ) * Players.PC.strength) * PCAttack.damage);
 			battleDescription = `${Players.PC.name} attacked using ${PCAttack.name} and ${Players.NPC.name} attacked using ${NPCAttack.name}`;
-
-
-
-
 			//PC attack vs NPC dodge logic
 		} else if (Players.NPC.attackState === "dodge") {
 			Players.NPC.health -= Math.ceil(((Math.random() * Players.PC.strength) * PCAttack.damage) / (Math.ceil(Math.random() * Players.NPC.agility)));
 			battleDescription = `${Players.NPC.name} dodged some of ${Players.PC.name}'s ${PCAttack.name} damage`;
-
-
-
 		}
-
-
-
-
 		//player dodge logic
 	} else if (Players.PC.attackState === "dodge") {
 
@@ -246,10 +219,6 @@ Battle = require("./battleground.js");
 const INPUT_VIEW = $("#userInputView"),
 BATTLE_VIEW = $("#battleView");
 
-//variables----players
-// let PC, NPC;
-
-
 //page initializer 
 $(document).ready(() => {
 	INPUT_VIEW.show();
@@ -261,8 +230,6 @@ $(document).ready(() => {
 $(document).on("change", ".modelSelect", function() {
 	let botChoice = $(this).children(":selected")[0];
 	Create.botAssign($(botChoice));
-	// console.log("PC", Players.PC);
-	// console.log("NPC", Players.NPC);
 });
 
 
@@ -270,18 +237,13 @@ $(document).on("change", ".modelSelect", function() {
 $(document).on("click", "#fightBtn", () => {
 	$(".userView").hide();
 	$("#battleView").show();
-	// console.log("this", this);
-	// if (this.id === "attackBtn") {
-	// 	Players.PC.attackState = "attack";
-	// } else if (this.id === "dodgeBtn") {
-	// 	Players.PC.attackState = "dodge";
-	// }
 	Battle.populatePage();
-
 });
 
+//combat function initializer
 $(document).on("click", ".battleBtn", () => {
 	let battleBtnClicked = event.target;
+	
 	//does the computer attack or dodge?
 	if (Math.random() >= 0.5) {
 		Players.NPC.attackState = "attack";
@@ -322,7 +284,7 @@ let Attacks = require("./attacks.js");
 const ROBOTS = {};
 
 ROBOTS.Robot = function() {
-	this.health = Math.floor(Math.random() * 50 + 50);//default health range from 50 to about 100
+	this.health = Math.floor(Math.random() * 50 + 50);
 	this.maxHealth = this.health;
 	this.attackState = null;
 };
