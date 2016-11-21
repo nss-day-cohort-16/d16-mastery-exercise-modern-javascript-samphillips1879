@@ -69,10 +69,8 @@ h1 {
 	.resultsPage {
 		margin-top: 5%;
 		font-size: 3em;
-		img {
-			width: 30%;
-		}
 	}
+
 
 	.card {
 		border: 2px solid black;
@@ -91,4 +89,18 @@ h1 {
 	background-image: url("../images/junkyard1.jpg");
 	background-size: 100% 100%;
 
+}
+
+
+#resultsViews {
+	img {
+		width: 50%;
+	}
+}
+
+
+#userInputView {
+	img {
+		width: 25%;
+	}
 }
