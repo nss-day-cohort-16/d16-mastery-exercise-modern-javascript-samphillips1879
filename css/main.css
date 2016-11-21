@@ -1,15 +1,17 @@
 body {
-  background-color: #4C3320; }
+  background-color: #4C3320;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
 
 h1 {
   color: #CF515C;
-  text-align: center; }
+  text-align: center;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
 
 .userView {
   background-color: #361518;
   color: #CF515C;
   display: none;
-  min-height: 700px;
+  min-height: 750px;
   width: 80%;
   margin: auto;
   border: 2px solid #2F592E;
@@ -34,11 +36,22 @@ h1 {
   .userView .avWrap {
     min-height: 200px; }
   .userView #battleDescriptionDiv {
-    min-height: 2.5em; }
+    padding: 1em 1em 1em 1em;
+    min-height: 4em; }
   .userView .resultsPage {
-    margin-top: 30%;
-    font-size: 3em;
-    color: #2F592E;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+    margin-top: 5%;
+    font-size: 3em; }
+    .userView .resultsPage img {
+      width: 30%; }
+  .userView .card {
+    border: 2px solid black;
+    background-color: #2F592E; }
+  .userView #battleDescriptionDiv {
+    width: 30%;
+    margin: auto; }
+
+#battleView {
+  background-image: url("../images/junkyard1.jpg");
+  background-size: 100% 100%; }
 
 /*# sourceMappingURL=main.css.map */
